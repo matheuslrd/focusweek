@@ -2,7 +2,7 @@ import { defineConfig } from 'drizzle-kit';
 import { env } from './src/env';
 
 export default defineConfig({
-    schema: './src/db/schema',
+    schema: './src/db/schema.ts',
     // Nome da pasta das minhas migrations
     out: './.migrations',
     dialect: 'postgresql',
