@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { client, db } from '.';
 import { goalCompletions, goals } from './schema';
 
@@ -16,10 +17,16 @@ async function seed() {
         ])
         .returning();
 
+    //  Criando uma data de semana e iniciando pelo domingo
+    const startOfWeek = dayjs().startOf('week');
+
     await db.insert(goalCompletions).values([
-        { goalId: goalOne.id, createdAt: new Date() },
-        { goalId: goalTwo.id, createdAt: new Date() },
-        { goalId: goalThree.id, createdAt: new Date() },
+        // Setando que a data é o proprio domingo
+        { goalId: goalOne.id, createdAt: startOfWeek.toDate() },
+        // Setando que a data é dois dias pós inicio, ou seja, terça-feira
+        { goalId: goalTwo.id, createdAt: startOfWeek.add(2, 'day').toDate() },
+        // Quarta-feira
+        { goalId: goalThree.id, createdAt: startOfWeek.add(3, 'day').toDate() },
     ]);
 }
 
