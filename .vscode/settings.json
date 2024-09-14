@@ -2,6 +2,5 @@
     "editor.formatOnSaveMode": "file",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
-    "editor.rulers": [110],
     "editor.tabSize": 4
 }

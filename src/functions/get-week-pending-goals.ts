@@ -18,7 +18,7 @@ export async function getWeekPendingGoals() {
         db
             .select({
                 goalId: goalCompletions.goalId,
-                completionCount: count(goalCompletions.id).as('completion_count'),
+                completionCount: count(goalCompletions.id).as('completionCount'),
             })
             .from(goalCompletions)
             .where(
